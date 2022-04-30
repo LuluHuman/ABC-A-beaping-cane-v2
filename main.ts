@@ -1,20 +1,21 @@
+//Varables
 const config: [string] = [
-    "70,1200",
+    "70,30000",
     "50,1000",
     "30,700",
     "20,500",
     "15,250",
     "10,125",
-    "7,62",
-    "4,50"
+    "7,60",
+    "3,30"
 ]
-let sonarPin = sonar.ping(
-    DigitalPin.P2,
-    DigitalPin.P3,
-    PingUnit.Centimeters
-)
-const buzzerPin = DigitalPin.P8
-basic.forever(function () {
+let sonarPin = 0
+let event = false
+const buzzerPin = DigitalPin.P0
+
+
+//functions
+function checkForsSig(res:boolean){
     if (sonarPin == 0) {
         basic.showLeds(`
         . . # . .
@@ -23,31 +24,44 @@ basic.forever(function () {
         . . . . .
         . . # . .
         `)
-        basic.pause(200)
-        basic.showLeds(`
-        # # . # #
-        # # . # #
-        # # . # #
-        # # # # #
-        # # . # #
-        `)
         return
     }
     config.forEach((key) => {
         const data = key.split(",")
-        
+
         const dist = parseInt(data[0])
         const wait = parseInt(data[1])
         if (sonarPin >= dist) {
-            beap(buzzerPin, wait)
-            return
+            if (!res) {
+                beap(buzzerPin, wait)
+            }else{
+                event = true
+            }
+            return 
         }
     })
-    led.toggle(3, 1)
-})
+    led.toggle(3,1)
+}
 
 function beap(buzzerPin: any, waittime: number) {
     pins.digitalWritePin(buzzerPin, 1)
-    basic.pause(waittime)
-    pins.digitalWritePin(buzzerPin, 0)
+    for (let i = 0; i <= waittime; i++) {
+        basic.pause(1)
+        checkForsSig(true)
+        if (event){
+            event = false
+            pins.digitalWritePin(buzzerPin, 0)
+            return
+        }
+    }
 }
+
+
+basic.forever(function () {
+    sonarPin = sonar.ping(
+        DigitalPin.P2,
+        DigitalPin.P3,
+        PingUnit.Centimeters
+    )
+    checkForsSig(false)
+})
