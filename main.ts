@@ -13,7 +13,6 @@ let sonarPin = 0
 let event = false
 const buzzerPin = DigitalPin.P0
 
-
 //functions
 function checkForsSig(res:boolean){
     if (sonarPin == 0) {
@@ -56,12 +55,8 @@ function beap(buzzerPin: any, waittime: number) {
     }
 }
 
-
+//
 basic.forever(function () {
-    sonarPin = sonar.ping(
-        DigitalPin.P2,
-        DigitalPin.P3,
-        PingUnit.Centimeters
-    )
+    sonarPin = sonar.ping(DigitalPin.P2, DigitalPin.P3, PingUnit.Centimeters)
     checkForsSig(false)
 })
