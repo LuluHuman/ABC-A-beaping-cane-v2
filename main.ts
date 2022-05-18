@@ -1,7 +1,6 @@
 //Varables
 const config: [string] = [
-    "70,30000",
-    "50,1000",
+    "50,-1",
     "30,700",
     "20,500",
     "15,250",
@@ -32,6 +31,9 @@ function checkForsSig(res:boolean){
         const wait = parseInt(data[1])
         if (sonarPin >= dist) {
             if (!res) {
+                const digets = sonarPin.toString().split("")
+                console.log(digets)
+                if (wait == -1) return;
                 beap(buzzerPin, wait)
             }else{
                 event = true
@@ -55,7 +57,6 @@ function beap(buzzerPin: any, waittime: number) {
     }
 }
 
-//
 basic.forever(function () {
     sonarPin = sonar.ping(DigitalPin.P2, DigitalPin.P3, PingUnit.Centimeters)
     checkForsSig(false)
