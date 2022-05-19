@@ -42,15 +42,7 @@ function checkForsSig(res:boolean){//|- A function that will check for dtstance 
         const dist = parseInt(data[0])//|--Set varable "dist" to the first value of "data"
         const wait = parseInt(data[1])//|--Set varable "wait" to the second value of "data"
         if (sonarPin >= dist) {     //|---if the sonar pin distance is more or equel to varable "dist"
-            if (!res) {             //|---If varable "res" (in arguments from function) is true
-                basic.showLeds(`
-                # # # # #
-                # # # # #
-                # # # # #
-                # # # # #
-                # # # # #
-                `)                  //|---- Fill the Leds 
-                led.setBrightness(sonarPin)//|----Set brightness to the sonar pin distance
+            if (!res) {             //|---If varable "res" (in arguments from function) is true                  //|---- Fill the Leds 
                 if (wait == -1) return;//|---- if varable "wait" is -1 (Max distance) then return
                 beap(buzzerPin, wait)//|----Run functionn "beap" with arguments of buzzerPin 
                                      //     and waiting time
@@ -60,6 +52,8 @@ function checkForsSig(res:boolean){//|- A function that will check for dtstance 
             return                   //---return
         }
     })
+
+    led.plot(2, 2)
 }
 
 function beap(buzzerPin: any, waittime: number) {//|- A function that will beap
