@@ -1,31 +1,16 @@
+# ABC - A Beaping Cane
+> 2nd version - Finals
 
-> Open this page at [https://masonhuman.github.io/abc-a-beaping-cane-v2/](https://masonhuman.github.io/abc-a-beaping-cane-v2/)
+### History
+> This was used for finals for a competition held by ITE and was got 3rd place in 2022
 
-## Use as Extension
+## To open/modify this repo
+1. open https://makecode.microbit.org/
+2. click on **Import** then click on Import URL
+3. **paste** https://github.com/felicity1l1/triobit and click **Import**
 
-This repository can be added as an **extension** in MakeCode.
+This project detects the distance from an object for a visually impared user to be able to listen for close objects
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/masonhuman/abc-a-beaping-cane-v2** and import
-
-## Edit this project ![Build status badge](https://github.com/masonhuman/abc-a-beaping-cane-v2/workflows/MakeCode/badge.svg)
-
-To edit this repository in MakeCode.
-
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/masonhuman/abc-a-beaping-cane-v2** and click import
-
-## Blocks preview
-
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
-
-![A rendered view of the blocks](https://github.com/masonhuman/abc-a-beaping-cane-v2/raw/master/.github/makecode/blocks.png)
-
-#### Metadata (used for search, rendering)
-
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+*idk its not my idea ask Chia Gin*
+</br>
+<a href="https://github.com/LuluHuman/abc-a-beaping-cane-v1">1st Version</a>
